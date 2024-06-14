@@ -1,5 +1,4 @@
 import requests
-import sys
 
 
 class GroupAction:
@@ -31,7 +30,6 @@ class GroupAction:
             return groups
         else:
             print('Error while fetching groups')
-            sys.exit()
 
     def create_group(self , name , description=None , place_id=None , login_enabled=False ,
                      geofence_restriction_enabled=False , primary_device_restriction_enabled=False ,
@@ -64,7 +62,6 @@ class GroupAction:
         else:
             print('Error while creating group')
             print(group)
-            sys.exit()
 
     def fetch_group(self , group_id):
         url = f'https://api.kisi.io/groups/{group_id}'
@@ -79,7 +76,6 @@ class GroupAction:
             return group
         else:
             print('Error while fetching group')
-            sys.exit()
 
     def update_group(self , group_id , name=None , description=None , login_enabled=None ,
                      geofence_restriction_enabled=None , primary_device_restriction_enabled=None ,
@@ -109,7 +105,6 @@ class GroupAction:
         else:
             print('Error while updating group')
             print(response.json())
-            sys.exit()
 
     def delete_group(self , group_id):
         url = f'https://api.kisi.io/groups/{group_id}'
@@ -122,7 +117,6 @@ class GroupAction:
             return f'Group {group_id} deleted successfully'
         else:
             print('Error while deleting group')
-            sys.exit()
 
 class CalendarAction:
     def __init__(self , api_key):
@@ -150,7 +144,6 @@ class CalendarAction:
         if response.status_code != 200:
             print('Error while fetching summary')
             print(summary)
-            sys.exit()
 
 class Camera:
     def __init__(self , base_url , api_key):
@@ -266,7 +259,6 @@ class Connect:
         if response.status_code != 200:
             print('Error while authenticating')
             print(data)
-            sys.exit()
 
         self.group = GroupAction(api_key)
         self.calendar = CalendarAction(api_key)
