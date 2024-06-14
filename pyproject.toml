@@ -18,7 +18,7 @@ dependencies = [
     "sys",
 ]
 
-version = "0.1"
+version = "1"
 
 [tool.setuptools_scm]
 
